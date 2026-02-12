@@ -3,55 +3,53 @@ version: 2.1
 jobs:
   checkout_and_unit_test:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/node:15.8.0
     steps:
-      - run: echo "ici c'est le checktout"
+      - checkout
+      - run: echo "ici c'est le checout et le test"
 
   deploy_backend:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est le deploiement du back end"
 
   integration_tests_backend:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est les tests en backend"
   
   deploy_staging:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est le deploiement du staging"
   
   acceptance_test1:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est le test d'acceptance 1"
-  
   acceptance_test2:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est le test d'acceptance 2"
-  
   acceptance_test3:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est le test d'acceptance 3"
-  
   acceptance_test4:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est le test d'acceptance 4"
-  
+
   deploy_production:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/base:stable
     steps:
       - run: echo "ici c'est le deploiement de la production"
 
@@ -59,8 +57,12 @@ workflows:
   build:
     jobs:
       - checkout_and_unit_test
-      - deploy_backend
-      - integration_tests_backend
+      - deploy_backend:
+          requires:
+          - checkout_and_unit_test
+      - integration_tests_backend:
+          requires:
+          - deploy_backend
       - deploy_staging:
           requires:
             - integration_tests_backend
