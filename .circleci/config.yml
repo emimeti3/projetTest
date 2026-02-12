@@ -2,7 +2,11 @@ version: 2.1
 
 jobs:
   checkout_and_unit_test:
-    - run: echo "ici c'est le checktout"
+    docker:
+      - image: cimg/node:15.8.0
+    steps:
+      - checkout
+      - run: echo "ici c'est le checout et le test"
 
   deploy_backend:
     - run: echo "ici c'est le deploiement du back end"
@@ -21,6 +25,7 @@ jobs:
     - run: echo "ici c'est le test d'acceptance 3"
   acceptance_test4:
     - run: echo "ici c'est le test d'acceptance 4"
+
   deploy_production:
     - run: echo "ici c'est le deploiement de la production"
 
@@ -28,8 +33,12 @@ workflows:
   build:
     jobs:
       - checkout_and_unit_test
-      - deploy_backend
-      - integration_tests_backend
+      - deploy_backend:
+          requires:
+          - checkout_and_unit_test
+      - integration_tests_backend:
+          requires:
+          - deploy_backend
       - deploy_staging:
           requires:
             - integration_tests_backend
