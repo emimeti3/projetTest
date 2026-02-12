@@ -10,32 +10,40 @@ jobs:
 
   deploy_backend:
     machine: true
-    - run: echo "ici c'est le deploiement du back end"
+    steps:
+      - run: echo "ici c'est le deploiement du back end"
 
   integration_tests_backend:
     machine: true
-    - run: echo "ici c'est les tests en backend"
+    steps:
+      - run: echo "ici c'est les tests en backend"
   
   deploy_staging:
     machine: true
-    - run: echo "ici c'est le deploiement du staging"
+    steps:
+      - run: echo "ici c'est le deploiement du staging"
   
   acceptance_test1:
     machine: true
-    - run: echo "ici c'est le test d'acceptance 1"
+    steps:
+      - run: echo "ici c'est le test d'acceptance 1"
   acceptance_test2:
     machine: true
-    - run: echo "ici c'est le test d'acceptance 2"
+    steps:
+      - run: echo "ici c'est le test d'acceptance 2"
   acceptance_test3:
     machine: true
-    - run: echo "ici c'est le test d'acceptance 3"
+    steps:
+      - run: echo "ici c'est le test d'acceptance 3"
   acceptance_test4:
     machine: true
-    - run: echo "ici c'est le test d'acceptance 4"
+    stpes:
+      - run: echo "ici c'est le test d'acceptance 4"
 
   deploy_production:
     machine: true 
-    - run: echo "ici c'est le deploiement de la production"
+    steps:
+      - run: echo "ici c'est le deploiement de la production"
 
 workflows:
   build:
