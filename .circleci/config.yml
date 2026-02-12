@@ -2,27 +2,58 @@ version: 2.1
 
 jobs:
   checkout_and_unit_test:
-    - run: echo "ici c'est le checktout"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le checktout"
 
   deploy_backend:
-    - run: echo "ici c'est le deploiement du back end"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le deploiement du back end"
 
   integration_tests_backend:
-    - run: echo "ici c'est les tests en backend"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est les tests en backend"
   
   deploy_staging:
-    - run: echo "ici c'est le deploiement du staging"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le deploiement du staging"
   
   acceptance_test1:
-    - run: echo "ici c'est le test d'acceptance 1"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le test d'acceptance 1"
+  
   acceptance_test2:
-    - run: echo "ici c'est le test d'acceptance 2"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le test d'acceptance 2"
+  
   acceptance_test3:
-    - run: echo "ici c'est le test d'acceptance 3"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le test d'acceptance 3"
+  
   acceptance_test4:
-    - run: echo "ici c'est le test d'acceptance 4"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le test d'acceptance 4"
+  
   deploy_production:
-    - run: echo "ici c'est le deploiement de la production"
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - run: echo "ici c'est le deploiement de la production"
 
 workflows:
   build:
