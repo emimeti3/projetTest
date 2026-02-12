@@ -37,7 +37,7 @@ jobs:
       - run: echo "ici c'est le test d'acceptance 3"
   acceptance_test4:
     machine: true
-    stpes:
+    steps:
       - run: echo "ici c'est le test d'acceptance 4"
 
   deploy_production:
