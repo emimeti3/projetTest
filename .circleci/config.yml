@@ -9,47 +9,39 @@ jobs:
       - run: echo "ici c'est le checout et le test"
 
   deploy_backend:
-    docker:
-      - image: cimg/base:stable
+    machine: true
     steps:
       - run: echo "ici c'est le deploiement du back end"
 
   integration_tests_backend:
-    docker:
-      - image: cimg/base:stable
+    machine: true
     steps:
       - run: echo "ici c'est les tests en backend"
   
   deploy_staging:
-    docker:
-      - image: cimg/base:stable
+    machine: true
     steps:
       - run: echo "ici c'est le deploiement du staging"
   
   acceptance_test1:
-    docker:
-      - image: cimg/base:stable
+    machine: true
     steps:
       - run: echo "ici c'est le test d'acceptance 1"
   acceptance_test2:
-    docker:
-      - image: cimg/base:stable
+    machine: true
     steps:
       - run: echo "ici c'est le test d'acceptance 2"
   acceptance_test3:
-    docker:
-      - image: cimg/base:stable
+    machine: true
     steps:
       - run: echo "ici c'est le test d'acceptance 3"
   acceptance_test4:
-    docker:
-      - image: cimg/base:stable
+    machine: true
     steps:
       - run: echo "ici c'est le test d'acceptance 4"
 
   deploy_production:
-    docker:
-      - image: cimg/base:stable
+    machine: true 
     steps:
       - run: echo "ici c'est le deploiement de la production"
 
